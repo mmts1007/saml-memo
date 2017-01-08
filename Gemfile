@@ -7,6 +7,9 @@ end
 
 # Customize
 gem 'ruby-saml'
+gem "therubyracer"
+gem "less-rails"
+gem "twitter-bootstrap-rails"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.1'
