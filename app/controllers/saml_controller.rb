@@ -26,7 +26,13 @@ class SamlController < ApplicationController
       @attrs = session[:attributes]
       logger.info "Sucessfully logged"
       logger.info "NAMEID: #{response.nameid}"
-      render :action => :index
+
+      unless Account.where(login_id: session[:nameid]).exists?
+        Account.create!(login_id: session[:nameid])
+      end
+
+      # render :action => :index
+      redirect_to '/memos'
     else
       logger.info "Response Invalid. Errors: #{response.errors}"
       @errors = response.errors

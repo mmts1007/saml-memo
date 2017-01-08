@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :memos
   get  'saml/index'
   get  'saml/sso'
   post 'saml/acs'
