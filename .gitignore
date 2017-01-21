@@ -21,3 +21,5 @@
 .byebug_history
 
 vendor/
+.env
+config/idp_cert.pem

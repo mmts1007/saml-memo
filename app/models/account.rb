@@ -14,19 +14,19 @@ class Account < ApplicationRecord
     settings.soft = true
 
     #SP section
-    settings.issuer                         = ''
+    settings.issuer                         = ENV['ISSUER']
     settings.assertion_consumer_service_url = url_base + "/saml/acs"
     settings.assertion_consumer_logout_service_url = url_base + "/saml/logout"
 
     # IdP section
-    settings.idp_entity_id                  = ""
-    settings.idp_sso_target_url             = ""
-    settings.idp_slo_target_url             = ""
-    settings.idp_cert                       = ""
+    settings.idp_entity_id                  = ENV['IDP_ENTITY_ID']
+    settings.idp_sso_target_url             = ENV['IDP_SSO_URL']
+    settings.idp_slo_target_url             = ENV['IDP_SLO_URL']
+    settings.idp_cert                       = File.read(Rails.root.join('config', 'idp_cert.pem'))
     # or settings.idp_cert_fingerprint           = "3B:05:BE:0A:EC:84:CC:D4:75:97:B3:A2:22:AC:56:21:44:EF:59:E6"
     #    settings.idp_cert_fingerprint_algorithm = XMLSecurity::Document::SHA1
 
-    settings.name_identifier_format         = "urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress"
+    settings.name_identifier_format         = ENV['NAME_ID_FORMAT']
 
     # Security section
     settings.security[:authn_requests_signed] = false

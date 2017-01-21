@@ -6,6 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Customize
+gem 'dotenv-rails'
 gem 'ruby-saml'
 gem "therubyracer"
 gem "less-rails"
