@@ -1,3 +1,4 @@
+# SEE: https://github.com/onelogin/ruby-saml-example/blob/master/app/models/account.rb
 class Account < ApplicationRecord
   has_many :memos
 

@@ -1,3 +1,4 @@
+# SEE: https://github.com/onelogin/ruby-saml-example/blob/master/app/controllers/saml_controller.rb
 class SamlController < ApplicationController
   skip_before_action :verify_authenticity_token, :only => [:acs, :logout]
 
