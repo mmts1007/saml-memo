@@ -1,0 +1,23 @@
+version: "2"
+
+services:
+
+  web:
+    build: .
+
+    volumes:
+      - .:/products
+
+    ports:
+      - "3000:3000"
+
+    environment:
+      RAILS_ENV: development
+      # ISSUER: xxx
+      # IDP_ENTITY_ID: xxx
+      # IDP_SSO_URL: xxx
+      # IDP_SLO_URL: xxx
+      # NAME_ID_FORMAT: xxx
+      # RAILS_LOG_TO_STDOUT: true
+
+    command: rails s -b 0.0.0.0 -p 3000
